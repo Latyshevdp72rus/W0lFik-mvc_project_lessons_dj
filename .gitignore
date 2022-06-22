@@ -1,0 +1,4 @@
+.idea/*
+venv/*
+Start.bat
+db.sqlite3
