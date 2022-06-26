@@ -6,10 +6,6 @@ class Book(models.Model):
     book_name = models.CharField(max_length=100, verbose_name="Название книги")
     author = models.ManyToManyField(
         'Author',
-        # on_delete=models.CASCADE,
-        # verbose_name='Автор книги',
-        # related_name='author_books'
-
     )
     description = models.TextField(verbose_name="Описание книги")
     id_publishing_house = models.ForeignKey(

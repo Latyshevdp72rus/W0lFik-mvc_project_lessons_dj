@@ -31,7 +31,7 @@ class PublishingHouseAdmin(admin.ModelAdmin):
         (None, {
             'fields': ('pub_house_name', 'pub_house_address')
         }),
-        ('Контакты', {
+        ('Контактная информация', {
             'fields': ('pub_house_contact_phone', 'pub_house_email', 'pub_house_site')
         })
     )
@@ -43,7 +43,7 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'first_name')
     search_fields = ('first_name', 'last_name', 'father_name')
     list_editable = ('is_daleted',)
-    list_filter = ('last_name', 'country', 'country', 'is_daleted')
+    list_filter = ('last_name', 'country', 'is_daleted')
 
     inlines = [
         BookInline,
