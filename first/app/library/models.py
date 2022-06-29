@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib import admin
 
-import app.books.models
-from ..books.models import Book
-
 
 class Extradition(models.Model):
     date_extradition = models.DateTimeField(auto_now_add=True, verbose_name="Дата выдачи")
