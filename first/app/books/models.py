@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib import admin
+from django.db import models
 
 
 class Book(models.Model):
@@ -20,6 +20,10 @@ class Book(models.Model):
     date_creation = models.DateTimeField(verbose_name="Дата написании книги", null=True, blank=True)
     date_add = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления", null=True, blank=True)
     is_daleted = models.BooleanField(default=False, verbose_name="удалено")
+    book_img = models.ImageField(upload_to='media/%y/%m/%d/',
+                                verbose_name="Ссылка на изображение",
+                                null=True,
+                                blank=True)
 
     def __str__(self):
         return self.book_name

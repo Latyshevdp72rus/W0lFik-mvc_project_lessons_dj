@@ -12,7 +12,7 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('date_creation', 'book_name', 'is_daleted')
     fieldsets = (
         (None, {
-            'fields': ('book_name', 'description','id_publishing_house')
+            'fields': ('book_name', 'description','id_publishing_house','book_img')
         }),
         ('Дата', {
             'fields': ('date_creation',)
