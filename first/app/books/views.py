@@ -1,7 +1,30 @@
 ﻿# from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
-from .models import Book
+from app.books.models import Book
+from app.books.forms import BookForm
+from .filters import BookFilter
+
+
+def get_books_list(request):
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            book_name = form.cleaned_data['book_name']
+            book_desc = form.cleaned_data['description']
+            authors = form.cleaned_data['author']
+
+    form = BookForm()
+    books = Book.objects.all()
+    # books =
+    # /?qwerty=12&asd=34
+    filter = BookFilter(request.GET, queryset=Book.objects.all())
+    context = {
+        # 'books':books,
+        'filter': filter,
+        'form': form
+    }
+    return render(request, 'books/book_list.html', context=context)
 
 
 class BookList(ListView):
@@ -13,7 +36,6 @@ class BooksDetail(DetailView):
     model = Book
     template_name = 'books/book_detail.html'
     pk_url_kwarg = 'pk'
-
 
 # def get_books_list(request):
 #     books = Book.objects.all()
