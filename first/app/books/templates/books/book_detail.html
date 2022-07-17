@@ -13,7 +13,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{% static  'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static  'css/bootstrap.min2.css' %}">
     <link rel="stylesheet" href="{% static  'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static  'css/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static  'css/font-awesome.min.css' %}">
@@ -23,14 +23,11 @@
     <link rel="stylesheet" href="{% static  'css/gijgo.css' %}">
     <link rel="stylesheet" href="{% static  'css/animate.css' %}">
     <link rel="stylesheet" href="{% static  'css/slicknav.css' %}">
-    <link rel="stylesheet" href="{% static  'css/style.css' %}">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <link rel="stylesheet" href="{% static  'css/style2.css' %}">
+
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
 
     <header>
         <div class="header-area ">
@@ -40,8 +37,8 @@
                         <div class="col-lg-6 col-md-8">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><a href="#">+880 4664 216</a></li>
-                                    <li><a href="#">Mon - Sat 10:00 - 7:00</a></li>
+                                    <li><a href="#"></a></li>
+                                    <li><a href="#"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -112,10 +109,7 @@
         <div class="container">
             <div class="row justify-content-center ">
                 <div class="col-lg-7 col-md-10">
-                    <div class="section_title text-center mb-95">
-                        <h3>Книги доступные каждому</h3>
-                        <p>Сайт городской библиотеки</p>
-                    </div>
+				<br>
                 </div>
 
             </div>
@@ -123,47 +117,27 @@
   <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
-                        <div>
+                        <div style="">
                             <img src="/media/{{ book.book_img }}" class="mx-auto d-block" alt="Cinque Terre" style="height: 400px; width: 300px;">
                             </div>
-                         <div class="service_content text-center">
+                         <div class="service_content" style="margin-left:50px">
                             <h3>{{ book.book_name }}</h3>
-                             <p><strong>Описание:</strong> {{ book.description }} </p>
                              <br>
-                             <p><strong>Издательство:</strong> {{ book.id_publishing_house.pub_house_name }}</p>
+                             <p><strong>Издательство: </strong>{{ book.id_publishing_house.pub_house_name }}</p>
                             {% for author in book.author.all %}
-                             <p> <strong>Автор книги:</strong> {{author.first_name}} {{ author.last_name}}</p>
-                             <p><strong>Страна</strong> {{ author.country }}</p>
+                             <p><strong>Автор книги: </strong>{{author.first_name}} {{ author.last_name}}</p>
+                             <p><strong>Страна: </strong>{{ author.country }}</p>
                              {% endfor %}
+							  <br>
+							  
+                             <p><strong>Описание: </strong>{{ book.description }}</p>
                          </div>
+						
                     </div>
 
                 </div>
         </div>
 
-
-<!--            <div class="row justify-content-center">-->
-<!--&lt;!&ndash;                  {% for book in books %}&ndash;&gt;-->
-<!--                <div class="col-lg-4 col-md-6">-->
-<!--                    <div class="single_service">-->
-
-<!--                        <div>-->
-<!--&lt;!&ndash;                            <img src="/media/{{ book.book_img }}" class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">&ndash;&gt;-->
-<!--                            </div>-->
-<!--                         <div class="service_content text-center">-->
-<!--&lt;!&ndash;                            <h3>{{ book.book_name }}</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;                             <h3>eee</h3>&ndash;&gt;-->
-<!--&lt;!&ndash;                             {% for author in book.author.all %}&ndash;&gt;-->
-<!--&lt;!&ndash;                             <p>eee</p>&ndash;&gt;-->
-<!--&lt;!&ndash;                                <p> {{author.first_name}} {{ author.last_name}}</p>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                             {% endfor %}&ndash;&gt;-->
-<!--                         </div>-->
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--&lt;!&ndash;        {% endfor %}&ndash;&gt;-->
-<!--        </div>-->
      </div>
         </div>
     <!-- service_area_end -->
