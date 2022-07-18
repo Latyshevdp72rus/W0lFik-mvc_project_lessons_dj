@@ -2,7 +2,7 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from app.books.models import Book
-from app.books.forms import BookForm, RegistrationForm
+from app.books.forms import BookForm
 from .filters import BookFilter
 
 
@@ -38,13 +38,13 @@ class BooksDetail(DetailView):
     pk_url_kwarg = 'pk'
 
 
-def create_user(request):
-    reg_form = RegistrationForm()
-    context = {
-        'reg_form': reg_form
-    }
-    return render(request, 'book/registration.html', context=context)
-
+# def create_user(request):
+#     reg_form = RegistrationForm()
+#     context = {
+#         'reg_form': reg_form
+#     }
+#     return render(request, 'book/registration.html', context=context)
+#
 
 
 
