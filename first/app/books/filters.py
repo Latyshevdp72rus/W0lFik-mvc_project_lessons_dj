@@ -9,5 +9,7 @@ class BookFilter(django_filters.FilterSet):
     author = django_filters.ModelChoiceFilter(queryset=Author.objects.all())
 
     class Meta:
-        query = Book.objects.all()
+        model = Book
+        exclude = ['book_img']
+        # query = Book.objects.all()
         fields = ['book_name','author']

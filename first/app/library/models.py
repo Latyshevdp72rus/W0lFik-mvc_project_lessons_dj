@@ -31,7 +31,7 @@ class Read_books(models.Model):
     contact_phone_read = models.CharField(max_length=20, verbose_name="Телефон читателя")
 
     def __str__(self):
-        return f"{self.ln_read} + ' ' + {self.fn_read} + ' ' + {self.fatn_read}"
+        return f"{self.ln_read} {self.fn_read} {self.fatn_read}"
 
     class Meta:
         verbose_name = 'Читателя'
