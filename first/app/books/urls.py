@@ -4,6 +4,7 @@ urlpatterns = [
     path('', get_books_list),
     path('', BookList.as_view()),
     path('<int:pk>', BooksDetail.as_view()),
+
     # path('<int:id_book>', get_book),
 
 ]

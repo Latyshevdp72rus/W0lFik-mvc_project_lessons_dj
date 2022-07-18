@@ -2,12 +2,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from app.books.forms import RegistrationForm
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('app.books.urls')),
     path('library/', include('app.library.urls')),
+    # path('user/', include('app.user.urls'))
+
 ]
 
 
