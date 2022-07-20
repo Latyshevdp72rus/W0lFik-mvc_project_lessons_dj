@@ -1,5 +1,5 @@
 ﻿# from django.http import HttpResponse
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import render
 from app.books.models import Book
 from app.books.forms import BookForm
@@ -36,18 +36,6 @@ class BooksDetail(DetailView):
     model = Book
     template_name = 'books/book_detail.html'
     pk_url_kwarg = 'pk'
-
-
-# def create_user(request):
-#     reg_form = RegistrationForm()
-#     context = {
-#         'reg_form': reg_form
-#     }
-#     return render(request, 'book/registration.html', context=context)
-#
-
-
-
 
 
 
