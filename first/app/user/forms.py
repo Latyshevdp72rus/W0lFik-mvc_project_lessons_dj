@@ -4,46 +4,47 @@ from django.contrib.admin import widgets
 
 
 class LoginForm(forms.Form):
-    user_name = forms.CharField(
-        max_length=20,
-        label="Логин:"
+    username = forms.CharField(
+        max_length=250,
+        label='логин'
     )
-
     password = forms.CharField(
-        label="Пароль",
-        widget=forms.PasswordInput
+        label='пароль',
+        widget=forms.PasswordInput()
     )
 
     class Meta:
-        model = User
-        fields = ['user_name', 'password']
+        models = User
+        fields = ('username', 'password')
 
 
 class RegistrationForm(forms.Form):
     first_name = forms.CharField(
-        max_length=20,
-        label="Имя:"
+        max_length=250,
+        label='Имя'
     )
-    last_name = forms.CharField(
-        max_length=20,
-        label="Фамилия:"
-    )
-    email = forms.EmailField(
-        label="Email: ",
-        max_length=20)
 
-    user_name = forms.CharField(
-        max_length=20,
-        label="Логин:"
+    last_name = forms.CharField(
+        max_length=250,
+        label='Фамилия'
+    )
+
+    email = forms.EmailField(
+        label='email',
+    )
+
+    username = forms.CharField(
+        max_length=250,
+        label='Имя используемое при авторизации'
     )
 
     password = forms.CharField(
-        label="Пароль",
-        widget=forms.PasswordInput
+        label='Пароль',
+        widget=forms.PasswordInput()
     )
     password2 = forms.CharField(
-        label="Пароль",
-        widget=forms.PasswordInput
+        label='Подтвердите пароль',
+        widget=forms.PasswordInput()
     )
 
     class Meta:

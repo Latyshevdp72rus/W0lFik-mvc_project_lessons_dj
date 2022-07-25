@@ -22,16 +22,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single_service">
                         <div>
-
                             <img src="/media/{{ book.book_img }}" class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">
-
                             </div>
                          <div class="service_content text-center">
                             <h3>{{ book.book_name }}</h3>
                              {% for author in book.author.all %}
-
                                 <p> {{author.first_name}} {{ author.last_name}}</p>
-
                              {% endfor %}
                          </div>
                     </div>
@@ -42,9 +38,13 @@
      </div>
         </div>
         <div>
-            <form method="get">
-            {{ filter.form.as_p }}
-            <input type="submit">
-            </form>
+            {% if user.is_authenticated %}
+                <form method="get">
+                    {{ filter.form.as_p }}
+                    <input type="submit">
+                </form>
+            {% endif %}
          </div>
+
+
 {% include "inc/_footer.html" %}

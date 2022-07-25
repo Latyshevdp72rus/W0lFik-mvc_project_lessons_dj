@@ -50,23 +50,15 @@
                         <div class="col-xl-9 col-lg-9">
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
-                                    <ul id="navigation">
-                                        <li><a  href="index.html">home</a></li>
-                                        <li><a href="about.html">about</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-
-                                            </ul>
-                                        </li>
-                                        <li><a href="service.html">services</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                    <ul id="navigation">'
+                                        <li><a  href="{% url 'main' %}">Главная</a></li>
+                                        {% if user.is_authenticated%}
+                                            <li><a href="{% url 'add_book' %}">Добавить книгу</a></li>
+                                            <li><a href="{% url 'logout' %}">logout</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'login' %}">login</a></li>
+                                            <li><a href="{% url 'register' %}">register</a></li>
+                                        {% endif %}
                                     </ul>
                                 </nav>
                             </div>

@@ -6,14 +6,15 @@ from django.http.response import HttpResponseRedirect
 
 
 def create_user(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             del form.cleaned_data['password2']
-            user = User(**form.data)
+            user = User(**form.cleaned_data)
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
+
         return redirect('main')
     else:
         form = RegistrationForm()
@@ -21,16 +22,17 @@ def create_user(request):
     context = {
         'form': form
     }
+
     return render(request, 'user/registration.html', context=context)
 
 
 def login_user(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            user_name = form.cleaned_data['user_name']
+            username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            user = auth.authenticate(user_name=user_name, password=password)
+            user = auth.authenticate(username=username, password=password)
             if user is not None and user.is_active:
                 auth.login(request, user)
                 return redirect('main')
@@ -42,6 +44,7 @@ def login_user(request):
     context = {
         'form': form,
     }
+
     return render(request, 'user/login.html', context=context)
 
 

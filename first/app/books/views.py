@@ -27,9 +27,26 @@ def get_books_list(request):
     return render(request, 'books/book_list.html', context=context)
 
 
+def add_books(request):
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            book_name = form.cleaned_data['book_name']
+            authors = form.cleaned_data['author']
+
+    form = BookForm()
+
+    context = {
+        'form': form
+    }
+    return render(request, 'books/add_book.html', context=context)
+
+
 class BookList(ListView):
     model = Book
     context_object_name = 'books'
+    template_name = 'books/books_list.html'
+
 
 
 class BooksDetail(DetailView):
