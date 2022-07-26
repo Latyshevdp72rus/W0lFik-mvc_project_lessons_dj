@@ -2,9 +2,29 @@
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from app.books.validators import validation_book_name
 from .filters import BookFilter
 from app.books.models import Book
 from app.books.forms import BookForm
+from django.conf import settings
+
+
+# class BookList(BookFilter):
+#     model = Book
+#     filterset_class = BookFilter
+#     context_object_name = 'books'
+#     template_name = 'books/book_list.html'
+#     paginate_by = 1
+#
+
+#
+# def get_books_list(request):
+#     books_query = Book.objects.all()
+#     pagination_page = Paginator(books_query, settings.OBJECTS_ON_PAGE)
+#     context = {
+#         'books': pagination_page,
+#     }
+#     return render(request, 'books/book_list.html', context=context)
 
 
 def get_books_list(request):
@@ -32,7 +52,7 @@ def add_books(request):
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
-            book_name = form.cleaned_data['book_name']
+            book_name = validation_book_name(form.cleaned_data['book_name'])
             authors = form.cleaned_data['author']
 
     form = BookForm()
@@ -49,22 +69,10 @@ class BookList(ListView):
     template_name = 'books/books_list.html'
 
 
-
 class BooksDetail(DetailView):
     model = Book
     template_name = 'books/book_detail.html'
     pk_url_kwarg = 'pk'
-
-
-
-
-
-
-
-
-
-
-
 
 # def get_books_list(request):
 #     books = Book.objects.all()
