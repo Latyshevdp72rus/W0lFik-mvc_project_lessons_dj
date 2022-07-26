@@ -1,9 +1,10 @@
 ﻿# from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView
 from django.shortcuts import render
+from django.core.paginator import Paginator
+from .filters import BookFilter
 from app.books.models import Book
 from app.books.forms import BookForm
-from .filters import BookFilter
 
 
 def get_books_list(request):
