@@ -14,16 +14,14 @@ def get_reads_book(request):
     return render(request, 'librarys/all_library.html', context)
 
 class ReadList(ListView):
-# class ReadList(FilterView):
     model = Extradition
-    # filterset_class = Extradition
     context_object_name = 'reads'
     template_name = 'librarys/library_list.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['reads'] = self.queryset
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reads'] = self.queryset
+        return context
 
 
 
@@ -40,7 +38,3 @@ class ReadDetail(DetailView):
 
 class ReadCreateView(CreateView):
     pass
-    # model = Read_books
-    # form_class = LibrarysAddNewForm
-    # template_name = 'librarys/librarys_add_new.html'
-    # success_url = reverse_lazy('librarys')

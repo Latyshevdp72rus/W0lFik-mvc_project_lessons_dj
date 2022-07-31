@@ -18,7 +18,6 @@ def create_user(request):
         return redirect('main')
     else:
         form = RegistrationForm()
-
     context = {
         'form': form
     }
