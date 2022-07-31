@@ -6,7 +6,6 @@ urlpatterns = [
     path('', BookList.as_view(), name='main'),
     path('<int:pk>', BooksDetail.as_view(), name='detail_view'),
     path('add_book/', add_books, name='add_book'),
-
     # path('<int:id_book>', get_book),
 
 ]

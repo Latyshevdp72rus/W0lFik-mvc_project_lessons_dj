@@ -7,14 +7,12 @@
     <div class="service_area">
         <div class="container">
             <div class="row justify-content-center ">
-
                 <div class="col-lg-7 col-md-10">
                     <div class="section_title text-center mb-95">
                         <h3>Книги доступные каждому</h3>
                         <p>Сайт городской библиотеки</p>
                     </div>
                 </div>
-
             </div>
             <div class="row justify-content-center">
                   {% for book in filter.qs %}
@@ -30,24 +28,10 @@
                              {% endfor %}
                          </div>
                     </div>
-
                 </div>
         {% endfor %}
         </div>
-<!--        {% if page_obj.has_previous %}-->
-<!--            <a href="?page={{ page_obj.next_page_number }}">next</a>-->
-<!--            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>-->
-<!--        {% endif %}-->
-<!--        <span class="current">-->
-<!--            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.-->
-<!--        </span>-->
-
-<!--        {% if page_obj.has_next %}-->
-<!--            <a href="?page={{ page_obj.next_page_number }}">next</a>-->
-<!--            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>-->
-<!--        {% endif %}-->
-<!--     </div>-->
-        </div>
+    </div>
         <div>
             {% if user.is_authenticated %}
                 <form method="get">
@@ -55,5 +39,5 @@
                     <input type="submit">
                 </form>
             {% endif %}
-         </div>
+        </div>
 {% include "inc/_footer.html" %}

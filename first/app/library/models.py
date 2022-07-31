@@ -33,7 +33,7 @@ class Read_books(models.Model):
     birthday_read = models.DateField(verbose_name="Дата рождения", blank=True, null=True)
     address_read = models.CharField(max_length=1500, verbose_name="Адрес читателя")
     contact_phone_read = models.CharField(max_length=20, verbose_name="Телефон читателя")
-    book_img = models.ImageField(upload_to='media/%y/%m/%d/',
+    read_img = models.ImageField(upload_to='media/%y/%m/%d/',
                                  verbose_name="Ссылка на изображение",
                                  null=True,
                                  blank=True)

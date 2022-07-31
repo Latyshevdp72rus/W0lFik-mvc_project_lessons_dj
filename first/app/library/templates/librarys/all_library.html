@@ -9,7 +9,7 @@
  <ol>
     {% for read in reads %}
         <li>
-          <img src=/media/{{ read.id_library_card.book_img }} alt={{read.id_library_card}}>
+          <img src=/media/{{ read.id_library_card.read_img }} alt={{read.id_library_card}}>
           <p><strong>Читатильский билет:</strong>{{read.id_library_card.id}}</p>
           <p><strong>Дата выдачи книги:</strong> {{read.date_extradition}}</p>
           <p><strong>Дата сдачи книги:</strong> {{read.date_delivery}}</p>
