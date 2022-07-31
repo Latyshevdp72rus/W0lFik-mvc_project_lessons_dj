@@ -1,21 +1,33 @@
-﻿# from django.http import HttpResponse
-from django.views.generic import ListView, DetailView, CreateView
+﻿from django_filters.views import FilterView
+from django.views.generic import ListView, DetailView, CreateView, FormView
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from app.books.validators import validation_book_name
-from .filters import BookFilter
-from app.books.models import Book
+from app.books.filters import BookFilter
+from app.books.models import Book, Author, PublishingHouse
 from app.books.forms import BookForm
 from django.conf import settings
 
 
-# class BookList(BookFilter):
-#     model = Book
-#     filterset_class = BookFilter
-#     context_object_name = 'books'
-#     template_name = 'books/book_list.html'
-#     paginate_by = 1
+class BookList(ListView):
+    model = Book
+    filterset_class = BookFilter
+    context_object_name = 'books'
+    template_name = 'books/book_list.html'
+    paginate_by = 1
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context['books'] = self.queryset
+        context['title'] = 'Городская библиотека'
+        return context
+
 #
+# class BookList(ListView):
+#     model = Book
+#     context_object_name = 'books'
+#     template_name = 'books/books_list.html'
 
 #
 # def get_books_list(request):
@@ -37,8 +49,6 @@ def get_books_list(request):
 
     form = BookForm()
     books = Book.objects.all()
-    # books =
-    # /?qwerty=12&asd=34
     filter = BookFilter(request.GET, queryset=Book.objects.all())
     context = {
         # 'books':books,
@@ -63,25 +73,39 @@ def add_books(request):
     return render(request, 'books/add_book.html', context=context)
 
 
-class BookList(ListView):
-    model = Book
-    context_object_name = 'books'
-    template_name = 'books/books_list.html'
-
-
 class BooksDetail(DetailView):
     model = Book
-    template_name = 'books/book_detail.html'
+    # template_name = 'books/book_detail.html'
     pk_url_kwarg = 'pk'
 
-# def get_books_list(request):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# `def get_books_list(request):
 #     books = Book.objects.all()
 #     context = {
 #         'books': books,
 #     }
 #
 #     return render(request, 'books/all_books.html', context)
-
+#
 # queryset = Book.objects.all()
 # template_name = 'book_list.html'
 # model = Book
@@ -90,7 +114,7 @@ class BooksDetail(DetailView):
 #     context = super().get_context_data(**kwargs)
 #     context['books'] = self.queryset
 #     context['title'] = 'городская библиотека'
-#     return context
+#     return context`
 
 
 # template_name = 'book_detail.html'

@@ -1,6 +1,6 @@
 import django_filters
 from django import forms
-from app.books.models import Book, Author, PublishingHouse
+from app.books.models import Book, Author
 
 
 class BookFilter(django_filters.FilterSet):
@@ -10,6 +10,6 @@ class BookFilter(django_filters.FilterSet):
 
     class Meta:
         model = Book
+        fields = ['book_name', 'author']
         exclude = ['book_img']
-        # query = Book.objects.all()
-        fields = ['book_name','author']
+

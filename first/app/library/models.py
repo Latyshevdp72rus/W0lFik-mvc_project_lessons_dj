@@ -17,24 +17,24 @@ class Extradition(models.Model):
     def __str__(self):
         return f"{self.date_extradition}"
 
-
     class Meta:
         verbose_name = 'Выдачу книги'
         verbose_name_plural = 'Выдачи книги'
 
+
 # читатель
 class Read_books(models.Model):
-    id_read = M = models.BigIntegerField
+    id_read = models.BigIntegerField
     fn_read = models.CharField(max_length=15, verbose_name="Имя")
     ln_read = models.CharField(max_length=15, verbose_name="Фамилия")
     fatn_read = models.CharField(max_length=15, verbose_name="Отчество", null=True, blank=True, default='Нет отчества')
-    birthday_read = models.DateField(verbose_name="Дата рождения", blank=True,null=True)
+    birthday_read = models.DateField(verbose_name="Дата рождения", blank=True, null=True)
     address_read = models.CharField(max_length=1500, verbose_name="Адрес читателя")
     contact_phone_read = models.CharField(max_length=20, verbose_name="Телефон читателя")
     book_img = models.ImageField(upload_to='media/%y/%m/%d/',
-                                verbose_name="Ссылка на изображение",
-                                null=True,
-                                blank=True)
+                                 verbose_name="Ссылка на изображение",
+                                 null=True,
+                                 blank=True)
 
     def __str__(self):
         return f"{self.ln_read} {self.fn_read} {self.fatn_read}"
@@ -42,6 +42,3 @@ class Read_books(models.Model):
     class Meta:
         verbose_name = 'Читателя'
         verbose_name_plural = 'Читатели'
-
-
-

@@ -15,7 +15,7 @@ class ReadBooksAdmin(admin.ModelAdmin):
     list_filter = ('ln_read',)
     fieldsets = (
         ('Основная информация', {
-            'fields': ('ln_read', 'fn_read', 'fatn_read', 'birthday_read')
+            'fields': ('ln_read', 'fn_read', 'fatn_read', 'birthday_read','book_img',)
         }),
         ('Контактная информация', {
             'fields': ('address_read', 'contact_phone_read')
