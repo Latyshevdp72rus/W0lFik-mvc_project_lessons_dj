@@ -18,10 +18,10 @@ class ReadList(ListView):
     context_object_name = 'reads'
     template_name = 'librarys/library_list.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['reads'] = self.queryset
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['reads'] = self.queryset
+    #     return context
 
 
 
