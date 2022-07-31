@@ -13,7 +13,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
-    <link rel="stylesheet" href="{% static  'css/bootstrap.min2.css' %}">
+    <link rel="stylesheet" href="{% static  'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static  'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static  'css/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static  'css/font-awesome.min.css' %}">
@@ -23,11 +23,14 @@
     <link rel="stylesheet" href="{% static  'css/gijgo.css' %}">
     <link rel="stylesheet" href="{% static  'css/animate.css' %}">
     <link rel="stylesheet" href="{% static  'css/slicknav.css' %}">
-    <link rel="stylesheet" href="{% static  'css/style2.css' %}">
-
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
 
 <body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
 
     <header>
         <div class="header-area ">
@@ -37,8 +40,8 @@
                         <div class="col-lg-6 col-md-8">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
+                                    <li><a href="#">+880 4664 216</a></li>
+                                    <li><a href="#">Mon - Sat 10:00 - 7:00</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +89,7 @@
                                         <li><a href="#">pages <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="elements.html">elements</a></li>
-
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="service.html">services</a></li>
@@ -103,47 +106,44 @@
             </div>
         </div>
     </header>
-
     <!-- service_area_start  -->
     <div class="service_area">
         <div class="container">
             <div class="row justify-content-center ">
+
                 <div class="col-lg-7 col-md-10">
-				<br>
+                    <div class="section_title text-center mb-95">
+                        <h3>Книги доступные каждому</h3>
+                        <p>Сайт городской библиотеки</p>
+
+                    </div>
                 </div>
 
             </div>
-
-  <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
+            <div class="row justify-content-center">
+                <div style="text-align:left" class="col-lg-4 col-md-6" >
                     <div class="single_service">
-                        <div style="">
-                            <img src="/media/{{ book.book_img }}" class="mx-auto d-block" alt="Cinque Terre" style="height: 400px; width: 300px;">
-                            </div>
-                         <div class="service_content" style="margin-left:50px">
-                            <h3>{{ book.book_name }}</h3>
-                             <br>
-                             <p><strong>Издательство: </strong>{{ book.id_publishing_house.pub_house_name }}</p>
-                            {% for author in book.author.all %}
-                             <p><strong>Автор книги: </strong>{{author.first_name}} {{ author.last_name}}</p>
-                             <p><strong>Страна: </strong>{{ author.country }}</p>
-                             {% endfor %}
-							  <br>
-							  
-                             <p><strong>Описание: </strong>{{ book.description }}</p>
+                        <div>
+                            <p align="right"><strong>Читатильский билет:</strong> {{reads.id_library_card.id}}</p>
+                            <hr>
+                            <img src="/media/{{ reads.id_library_card.book_img }} " class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">
+                            <hr>
+                        </div>
+                         <div class="service_content text-center">
+                             <p><strong>ФИО:</strong> {{reads.id_library_card}}</p>
+                             <p><strong>Номер телефона: </strong> {{reads.id_library_card.contact_phone_read}}</p>
+                             <hr>
+                             <p><strong>Дата выдачи :</strong> {{reads.date_extradition}}</p>
+                             <p><strong>Дата сдачи :</strong> {{reads.date_delivery}}</p>
+                              <hr>
                          </div>
-						
                     </div>
 
                 </div>
-        </div>
 
+        </div>
      </div>
         </div>
-    <!-- service_area_end -->
-
-
-
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

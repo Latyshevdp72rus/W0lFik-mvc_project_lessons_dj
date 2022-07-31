@@ -3,7 +3,7 @@ from django.contrib import admin
 
 
 class ExtraditionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'id_library_card', 'date_extradition', 'date_delivery')
+    list_display = ('id', 'id_library_card', 'date_extradition', 'date_delivery',"is_access")
     list_display_links = ('id', 'id_library_card', 'date_extradition', 'date_delivery')
     list_filter = ('id_library_card',)
 

@@ -106,16 +106,6 @@
             </div>
         </div>
     </header>
-
-
-    <div>
-        <form method="get">
-        {{ filter.form.as_p }}
-        <input type="submit">
-
-        </form>
-    </div>
-
     <!-- service_area_start  -->
     <div class="service_area">
         <div class="container">
@@ -125,25 +115,26 @@
                     <div class="section_title text-center mb-95">
                         <h3>Книги доступные каждому</h3>
                         <p>Сайт городской библиотеки</p>
-                         <h3>{{ book.book_name }}</h3>
+
                     </div>
                 </div>
 
             </div>
             <div class="row justify-content-center">
-                  {% for book in filter.qs %}
-                <div class="col-lg-4 col-md-6">
+                  {% for read in reads%}
+                <div style="text-align:left" class="col-lg-4 col-md-6" >
                     <div class="single_service">
                         <div>
-                            <img src="/media/{{ book.book_img }}" class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">
+                            <p align="right"><strong>Читатильский билет:</strong> {{read.id_library_card.id}}</p>
+                            <img src="/media/{{ read.id_library_card.book_img }} " class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">
                             </div>
                          <div class="service_content text-center">
-                            <h3>{{ book.book_name }}</h3>
-                             {% for author in book.author.all %}
-
-                                <p> {{author.first_name}} {{ author.last_name}}</p>
-
-                             {% endfor %}
+                             <p><strong>Читатильский билет:</strong>{{read.id_library_card.contact_phone_read}}</p>
+                             <p><strong>ФИО:</strong> {{read.id_library_card}}</p>
+                             <hr>
+                             <p><strong>Дата выдачи :</strong> {{read.date_extradition}}</p>
+                             <p><strong>Дата сдачи :</strong> {{read.date_delivery}}</p>
+                              <hr>
                          </div>
                     </div>
 
@@ -152,27 +143,6 @@
         </div>
      </div>
         </div>
-    <!-- service_area_end -->
-<!--    <div class="single_service">-->
-<!--      <div class="container">-->
-<!--        <form action="" method="post">-->
-<!--            {% csrf_token %}-->
-<!--            {{ form.as_p }}-->
-
-<!--        <button type="submit">Получить данные</button>-->
-
-<!--        </form>-->
-<!--    </div>-->
-<!--    </div>-->
-
-
-
-
-
-
-
-
-
     <!-- JS here -->
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
