@@ -3,8 +3,8 @@ from app.library.views import get_reads_book, ReadList, ReadDetail, ReadCreateVi
 
 urlpatterns = [
     # path('', get_reads_book),
-    path('', ReadList.as_view(), name='main'),
+    path('', ReadList.as_view(), name='library'),
     path('<int:pk>/', ReadDetail.as_view(), name='detail_view'),
-    path('add_new', ReadCreateView.as_view(), name='add_new'),
+    path('add_library_new/', ReadCreateView.as_view(), name='adds_new'),
 
 ]

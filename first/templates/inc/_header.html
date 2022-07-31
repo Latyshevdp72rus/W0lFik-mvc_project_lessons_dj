@@ -11,12 +11,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 col-md-8">
-                            <div class="short_contact_list">
-                                <ul>
-                                    <li><a href="#">+880 4664 216</a></li>
-                                    <li><a href="#">Mon - Sat 10:00 - 7:00</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="col-lg-6 col-md-4 ">
                             <div class="social_media_links">
@@ -51,13 +46,16 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">'
-                                        <li><a  href="{% url 'main' %}">Главная</a></li>
+                                        <li><a  href="{% url 'main' %}">Список книг</a></li>
+                                        <li><a  href="{% url 'library' %}">Список активных читателей</a></li>
                                         {% if user.is_authenticated%}
+
                                             <li><a href="{% url 'add_book' %}">Добавить книгу</a></li>
-                                            <li><a href="{% url 'logout' %}">logout</a></li>
+                                            <li><a href="{% url 'logout' %}">Выход</a></li>
                                         {% else %}
-                                            <li><a href="{% url 'login' %}">login</a></li>
-                                            <li><a href="{% url 'register' %}">register</a></li>
+                                            <li><a href="{% url 'login' %}">Вход</a></li>
+                                            <li><a href="{% url 'register' %}">Регистрация</a></li>
+
                                         {% endif %}
                                     </ul>
                                 </nav>

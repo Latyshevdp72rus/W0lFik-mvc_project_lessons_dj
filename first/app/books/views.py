@@ -22,6 +22,12 @@ class BookList(ListView):
         context['title'] = 'Городская библиотека'
         return context
 
+class BooksDetail(DetailView):
+    model = Book
+    template_name = 'books/book_detail.html'
+    pk_url_kwarg = 'pk'
+
+
 
 def get_books_list(request):
     if request.method == "POST":
@@ -54,7 +60,3 @@ def add_books(request):
     return render(request, 'books/add_book.html', context=context)
 
 
-class BooksDetail(DetailView):
-    model = Book
-    # template_name = 'books/book_detail.html'
-    pk_url_kwarg = 'pk'
