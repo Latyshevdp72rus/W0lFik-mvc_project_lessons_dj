@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from app.library.models import Read_books, Extradition
-from django.views.generic import ListView, DetailView, CreateView, FormView
+from django.views.generic import ListView, DetailView
+from app.library.models import Extradition
 
 
 # Создайте новый шаблон, на который виведите данные из созданного вами ранее приложения книжного магазина/библиотеки
