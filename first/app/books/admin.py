@@ -4,8 +4,7 @@ from django.contrib import admin
 
 # Register your models here.
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('id', 'book_name', 'description', 'id_publishing_house', 'date_creation', 'date_add',
-                    'is_daleted')
+    list_display = ('id', 'book_name', 'description', 'id_publishing_house', 'date_creation', 'date_add', 'is_daleted')
     list_display_links = ('id', 'book_name')
     search_fields = ('book_name',)
     list_editable = ('is_daleted',)
