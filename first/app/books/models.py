@@ -41,7 +41,7 @@ class Book(models.Model):
     )
     book_img = models.ImageField(
         upload_to='media/%y/%m/%d/',
-        verbose_name="Ссылка на изображение",
+        verbose_name="Загрузить",
         null=True,
         blank=True
     )

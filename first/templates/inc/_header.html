@@ -26,7 +26,8 @@
                                         <li><a  href="{% url 'library' %}">Список активных читателей</a></li>
                                         {% if user.is_authenticated%}
 
-                                            <li><a href="{% url 'add_book' %}">Добавить книгу</a></li>
+                                            <li><a href="{% url 'add_book' %}">Доб.книгу</a></li>
+                                             <li><a href="{% url 'add_reads' %}">Доб. читателя</a></li>
                                             <li><a href="{% url 'logout' %}">Выход</a></li>
                                         {% else %}
                                             <li><a href="{% url 'login' %}">Вход</a></li>

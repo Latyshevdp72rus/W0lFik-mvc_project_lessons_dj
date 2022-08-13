@@ -39,6 +39,4 @@ class BookForm(forms.Form):
             'book_name': forms.TextInput(attrs={"class": "librarys_text"}),
             'description': forms.Textarea(attrs={"class": "librarys_textarea"}),
             'author': forms.Select(attrs={"class": "librarys_textarea"}),
-
-
         }

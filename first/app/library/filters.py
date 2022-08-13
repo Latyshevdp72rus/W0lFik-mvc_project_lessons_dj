@@ -1,12 +1,14 @@
 import django_filters
 from django import forms
-from app.library.models import  Read_books
+from app.library.models import Read_books,Extradition
 
 
-class LibrarysFilter(django_filters.FilterSet):
-    read_books_name = django_filters.CharFilter(widget=forms.TextInput(attrs={"class": "filter"}))
+class ReadBooksFilter(django_filters.FilterSet):
+    read_books_query = Read_books.objects.all()
+    last_name = django_filters.CharFilter()
+    read_books_name = django_filters.ModelChoiceFilter(queryset=Read_books.objects.all())
 
     class Meta:
         model = Read_books
-        fields = ['read_books_name']
+        fields = ['last_name']
         exclude = ['book_img']

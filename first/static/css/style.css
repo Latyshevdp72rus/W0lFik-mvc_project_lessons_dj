@@ -119,6 +119,10 @@ p {
   color: #909092;
   margin-bottom: 13px;
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-content: space-between;
+  flex-direction: column;
+
 }
 
 /* line 66, ../../Arafath/CL/january 2020/240. Animal/HTML/scss/_reset.scss */

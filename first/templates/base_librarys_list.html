@@ -11,11 +11,15 @@
                     <div class="section_title text-center mb-95">
                          <h3>Список наших читателей</h3>
                         <p>Сайт городской библиотеки</p>
+                        <form method="get" class="setup_centr">
+							{{ filter.form.as_p }}
+							<button type="submit" Class="btn">Применить фильтр</button>
+						</form>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                  {% for read in reads%}
+                  {% for read in page_obj %}
                 <div style="text-align:left" class="col-lg-4 col-md-6" >
                     <div class="single_service">
                         <div>
@@ -37,6 +41,21 @@
         {% endfor %}
         </div>
       </div>
+        <div class="section_title text-center mb-95">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Первый</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Предыдущий</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Следующий</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Последний &raquo;</a>
+            {% endif %}
+            </div>
     </div>
 
 {% include "inc/_footer.html" %}
