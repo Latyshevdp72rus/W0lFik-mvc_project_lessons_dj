@@ -6,10 +6,10 @@ from django.contrib.admin import widgets
 class LoginForm(forms.Form):
     username = forms.CharField(
         max_length=250,
-        label='логин'
+        label='Логин'
     )
     password = forms.CharField(
-        label='пароль',
+        label='Пароль',
         widget=forms.PasswordInput()
     )
 
@@ -30,12 +30,12 @@ class RegistrationForm(forms.Form):
     )
 
     email = forms.EmailField(
-        label='email',
+        label='Email',
     )
 
     username = forms.CharField(
         max_length=250,
-        label='Имя используемое при авторизации'
+        label='Логин: '
     )
 
     password = forms.CharField(
