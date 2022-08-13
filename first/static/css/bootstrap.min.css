@@ -315,7 +315,9 @@ input[type=time] {
 
 textarea {
     overflow: auto;
-    resize: vertical
+    resize: vertical;
+	
+	margin-bottom:10px
 }
 
 fieldset {

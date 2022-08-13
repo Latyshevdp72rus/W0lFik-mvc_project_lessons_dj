@@ -6,4 +6,6 @@ def validation_book_name(book_name):
     if re.fullmatch(r'[A-ZА-ЯЁ0-9!?:-].*', book_name):
         return book_name
     else:
-        ValidationError(message="Не соответствует требованию")
+        ValidationError(
+            message="не соответствует требованиям: (A-ZА-ЯЁ0-9!?:-)"
+        )

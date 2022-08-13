@@ -26,7 +26,7 @@ class BookForm(forms.Form):
     # [author.id,fauthor.last_name, author.last_name] for author in author_query
 
     author = forms.MultipleChoiceField(
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.MultipleChoiceField(),
         choices=author_array,
         label='Авторы',
         required=True
@@ -38,4 +38,7 @@ class BookForm(forms.Form):
         widgets = {
             'book_name': forms.TextInput(attrs={"class": "librarys_text"}),
             'description': forms.Textarea(attrs={"class": "librarys_textarea"}),
+            'author': forms.Select(attrs={"class": "librarys_textarea"}),
+
+
         }
