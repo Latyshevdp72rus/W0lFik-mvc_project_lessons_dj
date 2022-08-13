@@ -1,8 +1,8 @@
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from app.user.forms import RegistrationForm, LoginForm
 from django.contrib import auth
-from django.http.response import HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from app.user.forms import RegistrationForm, LoginForm
 
 
 def create_user(request):
@@ -14,7 +14,6 @@ def create_user(request):
             password = form.cleaned_data['password']
             user.set_password(password)
             user.save()
-
         return redirect('main')
     else:
         form = RegistrationForm()

@@ -8,13 +8,14 @@
         <div class="col-lg-4 col-md-6">
             <div class="single_service">
                  <form action="" method="post" class="setup_centr">
-                     <fieldset style="border-style:1px">
+                     <fieldset >
                          <legend style="text-align:center">Вход на сайт</legend>
                          <br>
                         {% csrf_token %}
                         {{ form.as_p }}
+                        <button type="reset" Class="btn">Сброс </button>
                         <button type="submit" Class="btn">Авторизоваться</button>
-                     </fieldset>
+                 </fieldset>
                  </form>
             </div>
         </div>

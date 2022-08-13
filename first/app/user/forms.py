@@ -5,12 +5,14 @@ from django.contrib.admin import widgets
 
 class LoginForm(forms.Form):
     username = forms.CharField(
-        max_length=250,
-        label='Логин'
+        max_length=20,
+        label='Логин',
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
     password = forms.CharField(
+        max_length=16,
         label='Пароль',
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput(attrs={"class": "filter"})
     )
 
     class Meta:
@@ -21,30 +23,36 @@ class LoginForm(forms.Form):
 class RegistrationForm(forms.Form):
     first_name = forms.CharField(
         max_length=250,
-        label='Имя'
+        label='Имя: ',
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
 
     last_name = forms.CharField(
         max_length=250,
-        label='Фамилия'
+        label='Фамилия: ',
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
 
     email = forms.EmailField(
-        label='Email',
+        label='Почта: ',
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
 
     username = forms.CharField(
-        max_length=250,
-        label='Логин: '
+        max_length=20,
+        label='Логин: ',
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
 
     password = forms.CharField(
+        max_length=16,
         label='Пароль',
-        widget=forms.PasswordInput()
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
     password2 = forms.CharField(
+        max_length=16,
         label='Подтвердите пароль',
-        widget=forms.PasswordInput()
+        widget=forms.TextInput(attrs={"class": "filter"})
     )
 
     class Meta:
