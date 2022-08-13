@@ -3,12 +3,19 @@ from django.db import models
 
 
 class Book(models.Model):
-    book_name = models.CharField(max_length=100, verbose_name="Название книги")
+    book_name = models.CharField(
+        max_length=100,
+        verbose_name="Название книги")
     author = models.ManyToManyField(
         'Author',
-        related_name='books'
+        related_name='books',
+        verbose_name='Авторы'
     )
-    description = models.TextField(verbose_name="Описание книги")
+    description = models.TextField(
+        verbose_name="Описание книги",
+        null=True,
+        blank=True
+    )
     id_publishing_house = models.ForeignKey(
         'PublishingHouse',
         on_delete=models.CASCADE,
@@ -17,13 +24,27 @@ class Book(models.Model):
         null=True,
         blank=True
     )
-    date_creation = models.DateTimeField(verbose_name="Дата написании книги", null=True, blank=True)
-    date_add = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления", null=True, blank=True)
-    is_daleted = models.BooleanField(default=False, verbose_name="удалено")
-    book_img = models.ImageField(upload_to='media/%y/%m/%d/',
-                                verbose_name="Ссылка на изображение",
-                                null=True,
-                                blank=True)
+    date_creation = models.DateTimeField(
+        verbose_name="Дата написании книги",
+        null=True,
+        blank=True
+    )
+    date_add = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Дата добавления",
+        null=True,
+        blank=True
+    )
+    is_daleted = models.BooleanField(
+        default=False,
+        verbose_name="Удален"
+    )
+    book_img = models.ImageField(
+        upload_to='media/%y/%m/%d/',
+        verbose_name="Ссылка на изображение",
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return self.book_name
@@ -68,5 +89,5 @@ class Author(models.Model):
         verbose_name_plural = 'Авторы'
 
 
-class BookInline(admin.TabularInline):
+class BookInlineAuthor(admin.TabularInline):
     model = Book.author.through

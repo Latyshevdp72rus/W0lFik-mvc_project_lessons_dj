@@ -1,4 +1,4 @@
-from .models import Book, PublishingHouse, Author, BookInline
+from app.books.models import Book, PublishingHouse, Author, BookInlineAuthor
 from django.contrib import admin
 
 
@@ -11,7 +11,7 @@ class BookAdmin(admin.ModelAdmin):
     list_filter = ('date_creation', 'book_name', 'is_daleted')
     fieldsets = (
         (None, {
-            'fields': ('book_name', 'description','id_publishing_house','book_img')
+            'fields': ('book_name', 'description', 'id_publishing_house', 'book_img')
         }),
         ('Дата', {
             'fields': ('date_creation',)
@@ -44,8 +44,14 @@ class AuthorAdmin(admin.ModelAdmin):
     list_editable = ('is_daleted',)
     list_filter = ('last_name', 'country', 'is_daleted')
 
+    fieldsets = (
+        (None, {
+            'fields': ('first_name', 'last_name', 'father_name', 'country', 'birthday', 'languages', 'is_daleted')
+        }),
+    )
+
     inlines = [
-        BookInline,
+        BookInlineAuthor,
     ]
 
 
