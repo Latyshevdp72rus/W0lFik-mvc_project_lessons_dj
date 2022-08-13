@@ -23,18 +23,13 @@
                 <div style="text-align:left" class="col-lg-4 col-md-6" >
                     <div class="single_service">
                         <div>
-                            <p align="right"><strong>Читатильский билет:</strong> {{read.id_library_card.id}}</p>
+                            <p align="right"><strong>Читатильский билет: {{read.id}}</strong> </p>
                              <hr>
-                            <img src="/media/{{ read.id_library_card.read_img }} " class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">
+                            <img src="/media/{{ read.read_img }} " class="mx-auto d-block" alt="Cinque Terre" style="height: 200px; width: 150;">
                             </div>
                          <div class="service_content text-center">
                               <hr>
-                             <p><strong>ФИО:</strong> {{read.id_library_card}}</p>
-                             <p><strong>Номер телефона::</strong>{{read.id_library_card.contact_phone_read}}</p>
-                             <hr>
-                             <p><strong>Дата выдачи :</strong> {{read.date_extradition}}</p>
-                             <p><strong>Дата сдачи :</strong> {{read.date_delivery}}</p>
-                              <hr>
+                             <p><strong>ФИО:</strong> {{read.fn_read}} {{read.ln_read}} {{read.fatn_read}}</p>
                          </div>
                     </div>
                 </div>

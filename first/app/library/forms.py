@@ -47,5 +47,5 @@ class ReadsForm(forms.Form):
         fields = ['ln_read', 'fn_read', 'fatn_read', 'birthday_read','address_read', 'contact_phone_read', 'read_img']
         widgets = {
             'ln_read': forms.TextInput(attrs={"class": "librarys_text"}),
-            'fn_read': forms.Textarea(attrs={"class": "librarys_text"}),
+            'fn_read': forms.TextInput(attrs={"class": "librarys_text"}),
         }

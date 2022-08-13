@@ -6,7 +6,6 @@ class Extradition(models.Model):
     date_extradition = models.DateTimeField(auto_now_add=True, verbose_name="Дата выдачи")
     date_delivery = models.DateTimeField(verbose_name="Дата сдачи", blank=True)
     is_access = models.BooleanField(null=True,default=True, verbose_name="Доступ к библиотеке")
-
     id_library_card = models.ForeignKey(
         'Read_books',
         on_delete=models.CASCADE,
